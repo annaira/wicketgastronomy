@@ -2,7 +2,7 @@ package helloworld;
 
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-public class ArticlesPage extends BaseWebPage {
+public class ArticlesPage extends BaseEntitiesPage {
     public ArticlesPage(PageParameters parameters) {
         super(parameters);
     }
