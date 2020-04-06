@@ -1,7 +1,6 @@
 package helloworld;
 
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public abstract class BaseWebPage extends WebPage {
@@ -9,7 +8,6 @@ public abstract class BaseWebPage extends WebPage {
     public BaseWebPage(PageParameters parameters) {
         super(parameters);
         add(new Header("header"));
-        add(new BookmarkablePageLink<Void>("home", getApplication().getHomePage()));
         add(new Footer("footer"));
     }
 }
