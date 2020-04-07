@@ -1,6 +1,7 @@
 package helloworld;
 
 import helloworld.resources.BootstrapCssResourceReference;
+import helloworld.resources.CafeOneTheme;
 import helloworld.resources.DefaultTheme;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -27,7 +28,11 @@ public abstract class BaseWebPage extends WebPage {
     public void renderHead(IHeaderResponse response) {
         super.renderHead(response);
         response.render(CssHeaderItem.forReference(BootstrapCssResourceReference.get()));
-        response.render(CssHeaderItem.forReference(DefaultTheme.get()));
+        if (tenant.equals(Tenant.CAFEONE)) {
+            response.render(CssHeaderItem.forReference(CafeOneTheme.get()));
+        } else {
+            response.render(CssHeaderItem.forReference(DefaultTheme.get()));
+        }
     }
 
 }
