@@ -44,6 +44,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="Maven: org.apache.wicket:wicket-core:8.7.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.openjson:openjson:1.0.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.wicket:wicket-request:8.7.0" level="project" />
@@ -66,6 +67,5 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.eclipse.jetty:jetty-io:9.4.18.v20190429" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.eclipse.jetty:jetty-jmx:9.4.18.v20190429" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.eclipse.jetty:jetty-util:9.4.18.v20190429" level="project" />
-    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
 </module>
