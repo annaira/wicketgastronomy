@@ -4,7 +4,26 @@
 </head>
 <body>
 <wicket:extend>
-    TODO: Tische
+    <h1>Tische</h1>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Anzahl Plätze</th>
+            <th>Elektronisch bestellbar</th>
+        </tr>
+        <tr wicket:id="tables">
+            <td wicket:id="name">Name</td>
+            <td wicket:id="seatCount">Anzahl Plätze</td>
+            <td wicket:id="orderableElectronically">Elektronisch bestellbar</td>
+        </tr>
+    </table>
+    <ul class="pagination">
+        <li wicket:id="navigation" class="page-item">
+            <a wicket:id="pageLink" href="#" class="page-link">
+                <span wicket:id="pageNumber"></span>
+            </a>
+        </li>
+    </ul>
 </wicket:extend>
 </body>
 </html>

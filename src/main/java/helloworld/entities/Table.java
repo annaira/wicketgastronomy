@@ -34,6 +34,10 @@ public class Table extends BaseEntity {
         return orderableElectronically;
     }
 
+    public String getFormattedOrderableElectronically() {
+        return orderableElectronically ? "ja" : "nein";
+    }
+
     public void setOrderableElectronically(Boolean orderableElectronically) {
         this.orderableElectronically = orderableElectronically;
     }

@@ -2,7 +2,12 @@ package helloworld.entities;
 
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static java.util.Currency.getInstance;
+import static java.util.Locale.GERMANY;
 
 public class Article extends BaseEntity {
 
@@ -19,6 +24,7 @@ public class Article extends BaseEntity {
     private BigDecimal price;
 
     private String description;
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy", GERMANY);
 
     public Article(Category category, String name, String imageUrl, BigDecimal price, String description) {
         this.category = category;
@@ -42,12 +48,23 @@ public class Article extends BaseEntity {
         return validFrom;
     }
 
+    public String getFormattedValidFrom() {
+        return validFrom.format(dateTimeFormatter);
+    }
+
     public void setValidFrom(LocalDate validFrom) {
         this.validFrom = validFrom;
     }
 
     public LocalDate getValidTo() {
         return validTo;
+    }
+
+    public String getFormattedValidTo() {
+        if (validTo.equals(LocalDate.MAX)) {
+            return "-";
+        }
+        return validTo.format(dateTimeFormatter);
     }
 
     public void setValidTo(LocalDate validTo) {
@@ -72,6 +89,12 @@ public class Article extends BaseEntity {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public String getFormattedPrice() {
+        NumberFormat format = NumberFormat.getCurrencyInstance(GERMANY);
+        format.setCurrency(getInstance("EUR"));
+        return format.format(price);
     }
 
     public void setPrice(BigDecimal price) {
