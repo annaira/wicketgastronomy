@@ -4,26 +4,23 @@
 </head>
 <body>
 <wicket:extend>
-    <h1>Tische</h1>
-    <table class="table">
-        <tr>
-            <th>Name</th>
-            <th>Anzahl Plätze</th>
-            <th>Elektronisch bestellbar</th>
-        </tr>
-        <tr wicket:id="tables">
-            <td wicket:id="name">Name</td>
-            <td wicket:id="seatCount">Anzahl Plätze</td>
-            <td wicket:id="orderableElectronically">Elektronisch bestellbar</td>
-        </tr>
-    </table>
-    <ul class="pagination">
-        <li wicket:id="navigation" class="page-item">
-            <a wicket:id="pageLink" href="#" class="page-link">
-                <span wicket:id="pageNumber"></span>
-            </a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-12">
+            <h1>Tische</h1>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Anzahl Plätze</th>
+                    <th>Elektronisch bestellbar</th>
+                </tr>
+                <tr wicket:id="tables">
+                    <td wicket:id="name"></td>
+                    <td wicket:id="seatCount"></td>
+                    <td wicket:id="orderableElectronically"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </wicket:extend>
 </body>
 </html>

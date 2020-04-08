@@ -4,36 +4,33 @@
 </head>
 <body>
 <wicket:extend>
-    <h1>Artikel</h1>
-    <table class="table">
-        <tr>
-            <th>Kategorie</th>
-            <th>Name</th>
-            <th>Beschreibung</th>
-            <th>Preis</th>
-            <th>Bild</th>
-            <th>Gültig von</th>
-            <th>Gültig bis</th>
-        </tr>
-        <tr wicket:id="articles">
-            <td wicket:id="category">Kategorie</td>
-            <td wicket:id="name">Name</td>
-            <td wicket:id="description">Description</td>
-            <td wicket:id="price">Preis</td>
-            <td>
-                <img wicket:id="image" height="100px">
-            </td>
-            <td wicket:id="validFrom">Gültig Von</td>
-            <td wicket:id="validTo">Gültig Bis</td>
-        </tr>
-    </table>
-    <ul class="pagination">
-        <li wicket:id="navigation" class="page-item">
-            <a wicket:id="pageLink" href="#" class="page-link">
-                <span wicket:id="pageNumber"></span>
-            </a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-12">
+            <h1>Artikel</h1>
+            <table class="table">
+                <tr>
+                    <th>Kategorie</th>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                    <th>Preis</th>
+                    <th>Bild</th>
+                    <th>Gültig von</th>
+                    <th>Gültig bis</th>
+                </tr>
+                <tr wicket:id="articles">
+                    <td wicket:id="category"></td>
+                    <td wicket:id="name"></td>
+                    <td wicket:id="description"></td>
+                    <td wicket:id="price"></td>
+                    <td>
+                        <img wicket:id="image" height="100px">
+                    </td>
+                    <td wicket:id="validFrom"></td>
+                    <td wicket:id="validTo"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </wicket:extend>
 </body>
 </html>
