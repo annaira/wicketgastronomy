@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.4" />
           <element id="library" level="project" name="Maven: org.danekja:jdk-serializable-functional:1.8.6" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.apache.wicket:wicket-extensions:8.7.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.25" />
         </element>
       </element>
