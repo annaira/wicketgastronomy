@@ -11,6 +11,7 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.ArrayList;
@@ -29,14 +30,15 @@ public class ArticlesPage extends BaseEntitiesPage {
         articles = new DataView<Article>("articles", dataProvider) {
             @Override
             protected void populateItem(Item<Article> item) {
-                Article article = item.getModelObject();
-                item.add(new Label("category", article.getCategory().getName()));
-                item.add(new Label("name", article.getName()));
-                item.add(new Label("description", article.getDescription()));
-                item.add(new Label("price", article.getFormattedPrice()));
+                final Article article = item.getModelObject();
+                item.setModel(new CompoundPropertyModel<>(article));
+                item.add(new Label("category.name"));
+                item.add(new Label("name"));
+                item.add(new Label("description"));
+                item.add(new Label("price"));
                 item.add(new WebMarkupContainer("image").add(new AttributeAppender("src", article.getImageUrl())));
-                item.add(new Label("validFrom", article.getFormattedValidFrom()));
-                item.add(new Label("validTo", article.getFormattedValidTo()));
+                item.add(new Label("validFrom"));
+                item.add(new Label("validTo"));
             }
         };
     }
