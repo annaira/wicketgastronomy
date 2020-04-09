@@ -1,6 +1,7 @@
 package helloworld;
 
 import helloworld.entities.Category;
+import helloworld.services.CategoryService;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.OrderByBorder;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
@@ -10,7 +11,7 @@ import org.apache.wicket.markup.html.navigation.paging.IPageable;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.model.CompoundPropertyModel;
-import org.apache.wicket.model.LambdaModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 
@@ -21,16 +22,14 @@ public class CategoriesPage extends BaseEntitiesPage {
 
     public CategoriesPage(PageParameters parameters) {
         super(parameters);
-        dataProvider = new CategoryDataProvider();
+        dataProvider = new CategoriesDataProvider();
         categories = new DataView<Category>("categories", dataProvider) {
             @Override
             protected void populateItem(Item<Category> item) {
                 Category category = item.getModelObject();
-                item.setModel(new CompoundPropertyModel<>(item.getModelObject()));
-
+                item.setModel(new CompoundPropertyModel<>(item.getModel()));
                 item.add(new Label("name"));
-
-                final AttributeAppender srcAppender = new AttributeAppender("src", LambdaModel.of(category::getImageUrl));
+                final AttributeAppender srcAppender = new AttributeAppender("src", new PropertyModel<>(new EntityModel<>(category.getId(), CategoryService.class), "imageUrl"));
                 item.add(new WebMarkupContainer("image").add(srcAppender));
             }
         };

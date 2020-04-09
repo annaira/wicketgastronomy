@@ -7,15 +7,14 @@ import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CategoryDataProvider extends SortableDataProvider<Category, String> {
+public class CategoriesDataProvider extends SortableDataProvider<Category, String> {
 
-    public CategoryDataProvider() {
+    public CategoriesDataProvider() {
         setSort("name", SortOrder.ASCENDING);
     }
 
@@ -40,7 +39,8 @@ public class CategoryDataProvider extends SortableDataProvider<Category, String>
     }
 
     @Override
-    public IModel<Category> model(Category object) {
-        return Model.of(object);
+    public IModel<Category> model(Category category) {
+        return new EntityModel<>(category.getId(), CategoryService.class);
     }
+
 }
