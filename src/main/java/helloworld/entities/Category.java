@@ -6,6 +6,16 @@ public class Category extends BaseEntity {
 
     private String imageUrl;
 
+    public Category(String name, String imageUrl) {
+        super();
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
+
+    public Category() {
+
+    }
+
     public String getName() {
         return name;
     }

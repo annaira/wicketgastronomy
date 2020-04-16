@@ -25,6 +25,7 @@
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: org.apache.wicket:wicket-extensions:8.7.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.25" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">
