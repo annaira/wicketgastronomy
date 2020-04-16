@@ -38,7 +38,6 @@ public class TablesPage extends BaseEntitiesPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        tables.setItemsPerPage(3);
         add(tables);
     }
 

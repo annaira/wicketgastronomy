@@ -10,6 +10,7 @@ import org.apache.wicket.model.IModel;
 import java.util.Iterator;
 
 public class ArticlesDataProvider extends SortableDataProvider<Article, Void> {
+
     @Override
     public Iterator<? extends Article> iterator(long first, long count) {
         return ServiceRegistry.get(ArticleService.class).listAll().iterator();

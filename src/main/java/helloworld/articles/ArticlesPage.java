@@ -2,6 +2,8 @@ package helloworld.articles;
 
 import helloworld.BaseEntitiesPage;
 import helloworld.EntityModel;
+import helloworld.SuccessFeedbackPanel;
+import helloworld.ValidationErrorFeedbackPanel;
 import helloworld.entities.Article;
 import helloworld.services.ArticleService;
 import helloworld.services.ServiceRegistry;
@@ -14,7 +16,6 @@ import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.navigation.paging.IPageable;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
@@ -40,6 +41,7 @@ public class ArticlesPage extends BaseEntitiesPage {
             super.onSubmit();
             form.setVisible(false);
             ServiceRegistry.get(ArticleService.class).save(form.getModelObject());
+            form.success("Artikel wurde gespeichert");
         }
     };
 
@@ -87,7 +89,8 @@ public class ArticlesPage extends BaseEntitiesPage {
     private void initializeForm() {
         form.setVisible(false);
         add(form);
-        add(new FeedbackPanel("feedback"));
+        add(new ValidationErrorFeedbackPanel("validationFeedback"));
+        add(new SuccessFeedbackPanel("successFeedback"));
         form.setModel(new CompoundPropertyModel<>(new EntityModel<>(ArticleService.class)));
         form.add(new TextField<String>("name").setRequired(true).setLabel(Model.of("Name")));
         form.add(new TextArea<String>("description").setRequired(true).setLabel(Model.of("Beschreibung")));
