@@ -1,6 +1,8 @@
 package helloworld;
 
+import helloworld.articles.ArticlesPage;
 import helloworld.categories.CategoriesPage;
+import helloworld.tables.TablesPage;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.image.ContextImage;

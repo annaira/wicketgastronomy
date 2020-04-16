@@ -1,5 +1,6 @@
-package helloworld;
+package helloworld.articles;
 
+import helloworld.EntityModel;
 import helloworld.entities.Article;
 import helloworld.services.ArticleService;
 import helloworld.services.ServiceRegistry;

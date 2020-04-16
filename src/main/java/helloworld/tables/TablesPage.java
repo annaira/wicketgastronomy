@@ -1,5 +1,6 @@
-package helloworld;
+package helloworld.tables;
 
+import helloworld.BaseEntitiesPage;
 import helloworld.entities.Table;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.navigation.paging.IPageable;
