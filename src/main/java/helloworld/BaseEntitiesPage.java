@@ -15,6 +15,6 @@ public abstract class BaseEntitiesPage extends BaseWebPage {
         add(new PagingPanel("navigator", getPageable()));
     }
 
-    abstract IPageable getPageable();
+    protected abstract IPageable getPageable();
 
 }

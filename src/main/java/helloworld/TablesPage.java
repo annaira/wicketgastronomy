@@ -30,7 +30,7 @@ public class TablesPage extends BaseEntitiesPage {
     }
 
     @Override
-    IPageable getPageable() {
+    protected IPageable getPageable() {
         return tables;
     }
 

@@ -1,5 +1,6 @@
 package helloworld;
 
+import helloworld.categories.CategoriesPage;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.image.ContextImage;

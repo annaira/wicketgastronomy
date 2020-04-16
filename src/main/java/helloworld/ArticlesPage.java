@@ -63,7 +63,7 @@ public class ArticlesPage extends BaseEntitiesPage {
     }
 
     @Override
-    IPageable getPageable() {
+    protected IPageable getPageable() {
         return articles;
     }
 

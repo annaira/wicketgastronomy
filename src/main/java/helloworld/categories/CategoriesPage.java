@@ -1,8 +1,9 @@
-package helloworld;
+package helloworld.categories;
 
-import helloworld.entities.BaseEntity;
+import helloworld.BaseEntitiesPage;
+import helloworld.EntityModel;
+import helloworld.UniqueCategoryNameValidator;
 import helloworld.entities.Category;
-import helloworld.services.BaseService;
 import helloworld.services.CategoryService;
 import helloworld.services.ServiceRegistry;
 import org.apache.wicket.behavior.AttributeAppender;
@@ -53,7 +54,7 @@ public class CategoriesPage extends BaseEntitiesPage {
     }
 
     @Override
-    IPageable getPageable() {
+    protected IPageable getPageable() {
         return categories;
     }
 
@@ -77,7 +78,7 @@ public class CategoriesPage extends BaseEntitiesPage {
         add(new FeedbackPanel("feedback"));
         form.setModel(new CompoundPropertyModel<>(formEntityModel));
         add(form);
-        form.add(new TextField<String>("name").setRequired(true));
+        form.add(new TextField<String>("name").setRequired(true).add(new UniqueCategoryNameValidator()));
         form.add(new TextField<String>("imageUrl").setRequired(true).add(new UrlValidator()));
         form.setVisible(false);
     }
