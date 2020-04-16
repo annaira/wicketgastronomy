@@ -1,6 +1,9 @@
 package helloworld.entities;
 
 
+import helloworld.articles.Article;
+import helloworld.tables.Table;
+
 import java.math.BigDecimal;
 
 public class Order extends BaseEntity {

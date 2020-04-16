@@ -1,5 +1,8 @@
-package helloworld.entities;
+package helloworld.articles;
 
+
+import helloworld.entities.BaseEntity;
+import helloworld.categories.Category;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

@@ -1,6 +1,6 @@
 package helloworld.services;
 
-import helloworld.entities.Table;
+import helloworld.tables.Table;
 
 public class TableService extends BaseService<Table> {
     public TableService() {

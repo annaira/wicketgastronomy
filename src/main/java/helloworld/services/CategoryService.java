@@ -1,6 +1,6 @@
 package helloworld.services;
 
-import helloworld.entities.Category;
+import helloworld.categories.Category;
 
 public class CategoryService extends BaseService<Category> {
     public CategoryService() {

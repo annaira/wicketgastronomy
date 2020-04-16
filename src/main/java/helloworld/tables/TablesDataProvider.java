@@ -1,7 +1,6 @@
 package helloworld.tables;
 
 import helloworld.EntityModel;
-import helloworld.entities.Table;
 import helloworld.services.ServiceRegistry;
 import helloworld.services.TableService;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;

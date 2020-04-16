@@ -1,6 +1,6 @@
 package helloworld;
 
-import helloworld.entities.Category;
+import helloworld.categories.Category;
 import helloworld.services.CategoryService;
 import helloworld.services.ServiceRegistry;
 

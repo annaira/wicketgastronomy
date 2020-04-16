@@ -1,6 +1,6 @@
 package helloworld.services;
 
-import helloworld.entities.Article;
+import helloworld.articles.Article;
 
 import java.math.BigDecimal;
 

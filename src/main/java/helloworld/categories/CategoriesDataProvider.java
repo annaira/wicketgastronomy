@@ -1,7 +1,6 @@
 package helloworld.categories;
 
 import helloworld.EntityModel;
-import helloworld.entities.Category;
 import helloworld.services.CategoryService;
 import helloworld.services.ServiceRegistry;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;

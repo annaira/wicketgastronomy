@@ -1,7 +1,6 @@
 package helloworld.articles;
 
 import helloworld.EntityModel;
-import helloworld.entities.Article;
 import helloworld.services.ArticleService;
 import helloworld.services.ServiceRegistry;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;

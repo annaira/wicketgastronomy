@@ -1,6 +1,7 @@
-package helloworld.entities;
+package helloworld.categories;
 
 import helloworld.UniqueCategoryName;
+import helloworld.entities.BaseEntity;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;

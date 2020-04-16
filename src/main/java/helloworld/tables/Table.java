@@ -1,4 +1,6 @@
-package helloworld.entities;
+package helloworld.tables;
+
+import helloworld.entities.BaseEntity;
 
 public class Table extends BaseEntity {
 
