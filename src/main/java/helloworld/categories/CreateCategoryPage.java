@@ -12,7 +12,8 @@ public class CreateCategoryPage extends BaseWebPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        add(new EditCategory("editCategory"));
+        final EditCategory editCategory = new EditCategory("editCategory");
+        add(editCategory.setCategory(new Category()));
     }
 
 }
