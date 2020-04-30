@@ -12,7 +12,9 @@ public class CreateTablePage extends BaseWebPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        add(new EditTable("editTable"));
+        final EditTable editTable = new EditTable("editTable");
+        editTable.setTable(new Table());
+        add(editTable);
     }
 
 }
