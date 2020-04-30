@@ -34,7 +34,6 @@ public class CreateCategoryPage extends BaseWebPage {
     }
 
     private void initializeForm() {
-        super.onInitialize();
         add(new ValidationErrorFeedbackPanel("validationFeedback"));
         form.setModel(new CompoundPropertyModel<>(new EntityModel<>(CategoryService.class)));
         form.setModelObject(new Category());
