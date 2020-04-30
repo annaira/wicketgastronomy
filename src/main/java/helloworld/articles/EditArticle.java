@@ -43,7 +43,7 @@ public class EditArticle extends Panel {
         add(new ValidationErrorFeedbackPanel("validationFeedback"));
         form.setModel(new CompoundPropertyModel<>(new EntityModel<>(ArticleService.class)));
         form.add(new TextField<String>("name").setRequired(true).setLabel(Model.of("Name")));
-        form.add(new DropDownChoice<>("category", new CategoryListModel(), new ChoiceRenderer<>("name", "id")).add(new PropertyValidator<>()));
+        form.add(new DropDownChoice<>("category", new CategoryListModel(), new ChoiceRenderer<>("name", "id")).setRequired(true).add(new PropertyValidator<>()));
         form.add(new TextArea<String>("description").setRequired(true).setLabel(Model.of("Beschreibung")));
         form.add(new TextField<>("price").setRequired(true).setLabel(Model.of("Preis")).add(new RangeValidator<>(BigDecimal.ZERO, new BigDecimal("20"))));
         form.add(new TextField<>("validFrom").setLabel(Model.of("Gültig ab")).add(RangeValidator.maximum(LocalDate.now().plusMonths(3))));
