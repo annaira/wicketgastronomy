@@ -1,8 +1,17 @@
 package helloworld;
 
+import helloworld.articles.ArticlesPage;
+import helloworld.articles.CreateArticlePage;
+import helloworld.articles.ModifyArticlePage;
+import helloworld.categories.CategoriesPage;
+import helloworld.categories.CreateCategoryPage;
+import helloworld.categories.ModifyCategoryPage;
 import helloworld.converter.BooleanConverter;
 import helloworld.converter.CurrencyConverter;
 import helloworld.converter.LocalDateConverter;
+import helloworld.tables.CreateTablePage;
+import helloworld.tables.ModifyTablePage;
+import helloworld.tables.TablesPage;
 import org.apache.wicket.ConverterLocator;
 import org.apache.wicket.IConverterLocator;
 import org.apache.wicket.bean.validation.BeanValidationConfiguration;
@@ -36,7 +45,18 @@ public class WicketApplication extends WebApplication {
 
         new BeanValidationConfiguration().configure(this);
 
-        // add your configuration here
+        mountPage("/articles", ArticlesPage.class);
+        mountPage("/categories", CategoriesPage.class);
+        mountPage("/tables", TablesPage.class);
+
+        mountPage("/article/${id}", ModifyArticlePage.class);
+        mountPage("/article/new", CreateArticlePage.class);
+
+        mountPage("/category/${id}", ModifyCategoryPage.class);
+        mountPage("/category/new", CreateCategoryPage.class);
+
+        mountPage("/table/${id}", ModifyTablePage.class);
+        mountPage("/table/new", CreateTablePage.class);
     }
 
     @Override
