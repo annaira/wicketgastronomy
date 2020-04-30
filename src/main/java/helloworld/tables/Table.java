@@ -10,6 +10,10 @@ public class Table extends BaseEntity {
 
     private Boolean orderableElectronically = Boolean.TRUE;
 
+    public Table() {
+
+    }
+
     public Table(String name, int seatCount) {
         this.name = name;
         this.seatCount = seatCount;
