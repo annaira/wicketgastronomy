@@ -19,12 +19,8 @@ public class EntityModel<T extends BaseEntity, S extends BaseService<T>> extends
     private String newObjectSerialized;
 
     public EntityModel(T object, Class<S> serviceClass) {
-        entity = object;
-        if (entity.getId() != null) {
-            id = entity.getId();
-        }
         this.serviceClass = serviceClass;
-        entityClass = (Class<T>) object.getClass();
+        setObject(object);
     }
 
     public EntityModel(Class<S> serviceClass) {
@@ -36,6 +32,10 @@ public class EntityModel<T extends BaseEntity, S extends BaseService<T>> extends
         super.setObject(object);
         this.entity = object;
         this.entityClass = (Class<T>) object.getClass();
+        final Long id = this.entity.getId();
+        if (id != null) {
+            this.id = id;
+        }
     }
 
     @Override
