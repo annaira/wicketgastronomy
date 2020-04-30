@@ -12,7 +12,7 @@ public class CreateArticlePage extends BaseWebPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        add(new EditArticle("editArticle"));
+        add(new EditArticle("editArticle").setArticle(new Article()));
     }
 
 }

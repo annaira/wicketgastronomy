@@ -4,6 +4,7 @@ import helloworld.EntityModel;
 import helloworld.ValidationErrorFeedbackPanel;
 import helloworld.services.ArticleService;
 import helloworld.services.ServiceRegistry;
+import org.apache.wicket.Component;
 import org.apache.wicket.bean.validation.PropertyValidator;
 import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -29,19 +30,18 @@ public class EditArticle extends Panel {
 
     public EditArticle(String id) {
         super(id);
+        form.setModel(new CompoundPropertyModel<>(new EntityModel<>(ArticleService.class)));
     }
 
     @Override
     protected void onInitialize() {
         super.onInitialize();
         initializeForm();
-        form.setModelObject(new Article());
     }
 
     private void initializeForm() {
         add(form);
         add(new ValidationErrorFeedbackPanel("validationFeedback"));
-        form.setModel(new CompoundPropertyModel<>(new EntityModel<>(ArticleService.class)));
         form.add(new TextField<String>("name").setRequired(true).setLabel(Model.of("Name")));
         form.add(new DropDownChoice<>("category", new CategoryListModel(), new ChoiceRenderer<>("name", "id")).setRequired(true).add(new PropertyValidator<>()));
         form.add(new TextArea<String>("description").setRequired(true).setLabel(Model.of("Beschreibung")));
@@ -51,4 +51,8 @@ public class EditArticle extends Panel {
         form.add(new TextField<String>("imageUrl").setRequired(true).setLabel(Model.of("Bild-URL")).add(new UrlValidator()));
     }
 
+    public Component setArticle(Article article) {
+        form.setModelObject(article);
+        return this;
+    }
 }

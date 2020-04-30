@@ -4,6 +4,7 @@ import helloworld.EntityModel;
 import helloworld.ValidationErrorFeedbackPanel;
 import helloworld.services.ServiceRegistry;
 import helloworld.services.TableService;
+import org.apache.wicket.Component;
 import org.apache.wicket.bean.validation.PropertyValidator;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.*;
@@ -59,8 +60,9 @@ public class EditTable extends Panel {
         radioGroup.add(choices);
     }
 
-    public void setTable(Table table) {
+    public Component setTable(Table table) {
         form.setModelObject(table);
+        return this;
     }
 
 }
