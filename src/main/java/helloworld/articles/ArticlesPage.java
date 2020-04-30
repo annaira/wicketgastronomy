@@ -4,12 +4,10 @@ import helloworld.BaseEntitiesPage;
 import helloworld.EntityModel;
 import helloworld.SuccessFeedbackPanel;
 import helloworld.ValidationErrorFeedbackPanel;
-import helloworld.categories.Category;
 import helloworld.services.ArticleService;
 import helloworld.services.ServiceRegistry;
 import org.apache.wicket.bean.validation.PropertyValidator;
 import org.apache.wicket.behavior.AttributeAppender;
-import org.apache.wicket.extensions.markup.html.form.datetime.LocalDateTextField;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.*;
@@ -27,7 +25,6 @@ import org.apache.wicket.validation.validator.UrlValidator;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.format.FormatStyle;
 
 public class ArticlesPage extends BaseEntitiesPage {
 
@@ -92,11 +89,11 @@ public class ArticlesPage extends BaseEntitiesPage {
         add(new SuccessFeedbackPanel("successFeedback"));
         form.setModel(new CompoundPropertyModel<>(new EntityModel<>(ArticleService.class)));
         form.add(new TextField<String>("name").setRequired(true).setLabel(Model.of("Name")));
-        form.add(new DropDownChoice<Category>("category", new CategoryListModel(), new ChoiceRenderer<Category>("name", "id")).add(new PropertyValidator<>()));
+        form.add(new DropDownChoice<>("category", new CategoryListModel(), new ChoiceRenderer<>("name", "id")).add(new PropertyValidator<>()));
         form.add(new TextArea<String>("description").setRequired(true).setLabel(Model.of("Beschreibung")));
         form.add(new TextField<>("price").setRequired(true).setLabel(Model.of("Preis")).add(new RangeValidator<>(BigDecimal.ZERO, new BigDecimal("20"))));
-        form.add(new LocalDateTextField("validFrom", FormatStyle.SHORT).setLabel(Model.of("Gültig ab")).add(RangeValidator.maximum(LocalDate.now().plusMonths(3))));
-        form.add(new LocalDateTextField("validTo", FormatStyle.SHORT).setLabel(Model.of("Gültig bis")).add(RangeValidator.minimum(LocalDate.now().plusDays(1))));
+        form.add(new TextField<>("validFrom").setLabel(Model.of("Gültig ab")).add(RangeValidator.maximum(LocalDate.now().plusMonths(3))));
+        form.add(new TextField<>("validTo").setLabel(Model.of("Gültig bis")).add(RangeValidator.minimum(LocalDate.now().plusDays(1))));
         form.add(new TextField<String>("imageUrl").setRequired(true).setLabel(Model.of("Bild-URL")).add(new UrlValidator()));
     }
 
