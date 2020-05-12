@@ -7,6 +7,7 @@ import helloworld.services.ServiceRegistry;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.bean.validation.PropertyValidator;
+import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -20,7 +21,6 @@ public class EditCategory extends Panel {
         protected void onSubmit() {
             super.onSubmit();
             ServiceRegistry.get(CategoryService.class).save(this.getModelObject());
-            setResponsePage(CategoriesPage.class);
         }
     };
 
@@ -40,11 +40,19 @@ public class EditCategory extends Panel {
         form.add(new TextField<String>("name").add(new PropertyValidator<>()));
         form.add(new TextField<String>("imageUrl").add(new PropertyValidator<>()));
         form.add(new AjaxSubmitLink("save") {
+
+            @Override
+            protected void onSubmit(AjaxRequestTarget target) {
+                super.onSubmit(target);
+                findParent(ModalWindow.class).close(target);
+            }
+
             @Override
             protected void onError(AjaxRequestTarget target) {
                 super.onError(target);
                 target.add(EditCategory.this.validationFeedback);
             }
+
         });
     }
 

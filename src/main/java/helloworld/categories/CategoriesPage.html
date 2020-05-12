@@ -4,10 +4,11 @@
 </head>
 <body>
 <wicket:extend>
+    <div wicket:id="dialog"></div>
     <div class="row">
         <div class="col-12">
             <h1>Kategorien</h1>
-            <table class="table">
+            <table wicket:id="categoriesParent" class="table">
                 <tr>
                     <th><span wicket:id="orderByName">Name</span></th>
                     <th>Bild</th>
@@ -32,9 +33,7 @@
     </div>
     <div class="row button">
         <div class="col-12">
-            <wicket:link>
-                <a href="CreateCategoryPage.html" class="btn">Neue Kategorie anlegen</a>
-            </wicket:link>
+            <a wicket:id="createCategory" class="btn">Neue Kategorie anlegen</a>
         </div>
     </div>
 </wicket:extend>
