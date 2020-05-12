@@ -4,6 +4,8 @@ import helloworld.EntityModel;
 import helloworld.ValidationErrorFeedbackPanel;
 import helloworld.services.CategoryService;
 import helloworld.services.ServiceRegistry;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.bean.validation.PropertyValidator;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -22,22 +24,28 @@ public class EditCategory extends Panel {
         }
     };
 
+    private final ValidationErrorFeedbackPanel validationFeedback;
+
     public EditCategory(String id) {
         super(id);
-        form.setModel(new CompoundPropertyModel<>(new EntityModel<>(CategoryService.class)));
+        this.form.setModel(new CompoundPropertyModel<>(new EntityModel<>(CategoryService.class)));
+        validationFeedback = new ValidationErrorFeedbackPanel("validationFeedback");
     }
 
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        initializeForm();
-    }
-
-    private void initializeForm() {
-        add(new ValidationErrorFeedbackPanel("validationFeedback"));
+        add(validationFeedback);
         add(form);
         form.add(new TextField<String>("name").add(new PropertyValidator<>()));
         form.add(new TextField<String>("imageUrl").add(new PropertyValidator<>()));
+        form.add(new AjaxSubmitLink("save") {
+            @Override
+            protected void onError(AjaxRequestTarget target) {
+                super.onError(target);
+                target.add(EditCategory.this.validationFeedback);
+            }
+        });
     }
 
     EditCategory setCategory(Category category) {
