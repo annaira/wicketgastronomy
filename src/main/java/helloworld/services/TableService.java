@@ -2,6 +2,9 @@ package helloworld.services;
 
 import helloworld.tables.Table;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class TableService extends BaseService<Table> {
     public TableService() {
         final Table costarica = new Table("Costa Rica", 4);
@@ -15,5 +18,13 @@ public class TableService extends BaseService<Table> {
         save(honduras);
         save(mexiko);
         save(kuba);
+    }
+
+    public List<String> listTableNamesContaining(String nameFragment) {
+        return listAll().stream().filter(table -> table.getName().contains(nameFragment)).map(Table::getName).collect(Collectors.toList());
+    }
+
+    public Table getByName(String name) {
+        return listAll().stream().filter(table -> table.getName().equals(name)).findFirst().orElse(null);
     }
 }
