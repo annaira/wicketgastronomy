@@ -11,7 +11,6 @@ import org.apache.wicket.extensions.markup.html.repeater.data.sort.OrderByBorder
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.navigation.paging.IPageable;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
@@ -23,7 +22,7 @@ public class CategoriesPage extends BaseEntitiesPage {
     private final AjaxLink<Void> createCategory;
     private final DataView<Category> categories;
     private final SortableDataProvider<Category, String> dataProvider;
-    private WebMarkupContainer categoriesParent;
+    private final WebMarkupContainer categoriesParent;
     private ModalWindow dialog;
     private EditCategory categoryEditPanel;
 
